@@ -62,7 +62,7 @@ main(){
     cout<<"Ingrese el segundo valor de x"<<endl;
     gotoxy(43,18);
     cin>>max;
-    if (f(a) * f(b) > 0)
+    if (f(a)*f(b)<0)
     {
         gotoxy(43,20);
         cout<<"No se puede aplicar el metodo de bisección";
@@ -78,24 +78,14 @@ main(){
         gotoxy(43,23);
         cout<<"a\tb\tx\tf(a)\t\tf(b)\t\tf(x)"<<endl;
         int contador=0;
+        system("cls");
         do
         {
             raiz=(a+b)/2;
-            gotoxy(43,25+contador);
-            cout<<a;
-            gotoxy(47,25+contador);
-            cout<<b;
-            gotoxy(49,25+contador);
-            cout<<raiz;
-            gotoxy(51,25+contador);
-            cout<<f(a);
-            gotoxy(55,25+contador);
-            cout<<f(b);
-            gotoxy(62,25+contador);
-            cout<<f(raiz);
+            cout << a << "\t" << b << "\t" << raiz << "\t";
+            cout << f(a) << "\t" << f(b) << "\t" << f(raiz) << endl;
             if (abs(f(raiz))<=tolerancia)
             {
-                gotoxy(43,25+contador);
                 cout<<"Para una tolerancia "<<tolerancia<<" la raiz de f es "<<raiz<<endl;
                 break;
             }else{
@@ -108,7 +98,7 @@ main(){
                 }
             }
             contador++;
-        } while (1);
+        }while(1);
     }
     system("pause");
 }
