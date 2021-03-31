@@ -1,65 +1,51 @@
 #include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 
-/* funciones  */
-double G( double );
-double getError( double , double );
-double abs_val( double );
+using namespace std;
 
-int main( int argc , char ** argv )
+float desp(double);
+
+int main()
 {
-    double P = 0, Pant = 0, a = 0, b = 0;
-	int n = 0, e = 0;
-	if ( argc != 5 )
+	double  error,fx,gx,x0,aux=1;
+	
+	cout << " f(X): 2x^2-x-5";
+	cout << "\ndespeje g(X): raiz cuadrada de (x+5)/2";
+	cout << "\ningresa el punto x0: ";
+	cin >> x0;
+	cout << "\ningresa el error: ";	
+	cin >> error;
+	
+	system ("cls");	
+	
+		fx=desp(x0);
+		gx=x0-fx;
+		cout <<"\nx\t\tg(x)\t\terror\n";
+		cout << x0 <<"\t\t"<<fx<<"\t\t"<<gx;
+	
+	do
 	{
-		printf ( "%s", "\n\n Error: Not enough arguments supplied \n  ->Usage: ./biseccion limit_a limit_b Pant exp_epsilon \n\n" );
-		return 1;
-	}
-	else
-	{			
-		//a = atof( argv[1] );
-		//b = atof( argv[2] );
-		Pant = atof( argv[3] );
-		e = atoi( argv[4] );
-		P = G( Pant );
-		printf("\n\n");
-		n++;
-		while(getError(P,  Pant) > pow(10,e))
+		x0=fx;
+		fx=desp(fx);
+		gx=(x0-fx);
+		if(gx<0)
 		{
-			printf("\n %d - %.9f - %.9f - %.9f ",n, P, Pant, getError(P, Pant));
-			Pant = P;
-			P = G(Pant);
-			n++;
+			gx=gx*-1;
 		}
-		printf("\n\n RESULTADO: %.9f \n\n",P);
+		if(gx-error<0)
+		{
+			aux=0;
+		}
+		cout <<"\n" <<x0 <<"\t\t"<<fx<<"\t\t"<<gx;
 	}
-	return 0;	
+	while(aux!=0 );
+	
+	cout<<"\n";
+	system ("pause");
+
 }
 
-/* definicion de funciones */
-
-/* funcion G(x) */
-double G( double x )
+float desp(double n)
 {
-	return pow( ( ( 3 * pow(x,2) ) + 3 ), 0.25 );
-}
-
-/* devuelve el error */
-double getError( double P, double Pant )
-{
-	return abs_val( P - Pant );
-}
-
-/* devuelve valor absoluto de un numero */
-double abs_val( double a )
-{
-	if ( a < 0 )
-	{
-		return -1 * a;
-	}
-	else
-	{
-		return a;
-	}
+	return sqrt((n+5)/2);	
 }
