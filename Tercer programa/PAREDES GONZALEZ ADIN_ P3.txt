@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+const double EA=0.001;
+
+double formu(double x) {
+  return sqrt((x+5)/(2));
+}
+
+int main() {
+	double x=0, XR=1.5, NumI=0, Error=0, i=0;
+	cout<<"INGRESA EL NUMERO DE ITERACIONES: "<<endl;
+	cin>> NumI;
+	cout<<endl;
+
+	while(true){
+    	x=formu(x);
+    
+    if ((fabs(x-XR))<EA){
+      break;
+    }
+    cout<<"Valor de Xi: "<<x;
+    Error=x-XR;
+    cout<<"EL ERROR ES DE:"<<Error<<endl;
+    i++;
+   XR =x;
+    
+    if (i> NumI) {
+      cout<<"FALLO EL METODO "<<endl;
+	  cout<<"LA FUNCION NO SIRVE "<<endl;
+      break;
+    }
+  }
+
+  return 0;
+}
