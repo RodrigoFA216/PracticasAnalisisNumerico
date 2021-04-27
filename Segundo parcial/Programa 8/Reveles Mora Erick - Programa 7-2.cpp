@@ -25,7 +25,7 @@ int main(){
                         a[i-1][j]=d;
                     }
         }
-    cout << "pivoted output: " << endl;
+    cout << "Salida: " << endl;
     for(i=1; i<=NumeroDeEcuaciones; i++){
             for (j=1; j<=NumeroDeEcuaciones*2; j++)
                 cout << a[i][j] << "    ";
@@ -47,7 +47,7 @@ int main(){
             for (j=1; j<=NumeroDeEcuaciones*2; j++)
                 a[i][j] = a[i][j]/d;
         }
-    cout << "your solutions: " << endl;
+    cout << "La solucion es: " << endl;
     for (i=1; i<=NumeroDeEcuaciones; i++){
             for (j=NumeroDeEcuaciones+1; j<=NumeroDeEcuaciones*2; j++)
                 cout<<a[i][j]<<"    ";
