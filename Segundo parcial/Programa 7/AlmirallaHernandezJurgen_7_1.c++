@@ -7,6 +7,7 @@ int main(){
 
 int u=0,r,i,j;
 float a,a1,a2,a3,jr[30];
+float V[30][30]={0};
 
 
 cout<<"-------GAUSS--------";
@@ -15,7 +16,6 @@ cin>>r;
 
 for(i=0;i<r;i++){
 
-   float V[30][30]={0};
 
     cout<<"Ingresa los valores:";
 
